@@ -14,7 +14,7 @@
 import * as webllm from '@mlc-ai/web-llm';
 
 let engine = null;
-let activeModelId = 'Llama-3.2-1B-Instruct-q4f32_1-MLC';
+let activeModelId = 'Qwen2-0.5B-Instruct-q4f16_1-MLC';
 let usedDevice = 'unknown';
 
 const TAG = '[InterviewLens:LLM-Worker]';
@@ -61,8 +61,8 @@ async function loadEngine() {
   usedDevice = 'webgpu';
   // Use q4f16_1 if shader-f16 is available, else q4f32_1 for compatibility
   activeModelId = hasF16
-    ? 'Llama-3.2-1B-Instruct-q4f16_1-MLC'
-    : 'Llama-3.2-1B-Instruct-q4f32_1-MLC';
+    ? 'Qwen2-0.5B-Instruct-q4f16_1-MLC'
+    : 'Qwen2-0.5B-Instruct-q4f32_1-MLC';
 
   console.log(`${TAG} Selected model variant: ${activeModelId} (shader-f16: ${hasF16})`);
 
